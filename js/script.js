@@ -339,7 +339,7 @@ window.KLINBIT_PROOF = {
   var tones = $$('[data-tone]').filter(function (n) { return n !== hdr; });
   var N = steps.length;
 
-  var mq = window.matchMedia('(min-width: 961px) and (min-height: 640px) and (prefers-reduced-motion: no-preference)');
+  var mq = window.matchMedia('(min-width: 961px) and (min-height: 480px) and (prefers-reduced-motion: no-preference)');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var pinned = false, vh = window.innerHeight, lastY = window.scrollY, dir = 0, queued = false, last = {};
   var STEP_VH = 0.8;                      // pantallas de scroll por paso del método
