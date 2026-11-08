@@ -447,3 +447,20 @@ window.KLINBIT_PROOF = {
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(setPin);
   setPin();
 })();
+
+
+/* ############################## Pantalla de carga ############################## */
+(function () {
+  var root = document.documentElement;
+  if (!root.classList.contains('is-loading')) return;
+  var start = Date.now(), done = false;
+  function finish() {
+    if (done) return; done = true;
+    root.classList.add('is-loaded');
+    try { sessionStorage.setItem('kb-loaded', '1'); } catch (e) {}
+    setTimeout(function () { root.classList.remove('is-loading', 'is-loaded'); }, 800);
+  }
+  function ready() { setTimeout(finish, Math.max(0, 900 - (Date.now() - start))); }
+  if (document.readyState === 'complete') ready(); else window.addEventListener('load', ready);
+  setTimeout(finish, 4000); /* red de seguridad */
+})();
